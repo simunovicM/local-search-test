@@ -10,13 +10,11 @@ import router from './router'
 
 Vue.use(Notifications);
 
-import Input from './components/common/form/input/Input';
-import InputGroup from './components/common/form/input/InputGroup';
-import Spinner from './components/common/spinner/Spinner';
+import InputGroup from './components/common/form/input/InputGroup.vue';
+import Spinner from './components/common/spinner/Spinner.vue';
 
 Vue.config.productionTip = false
 
-Vue.component('Input', Input);
 Vue.component('InputGroup', InputGroup);
 Vue.component('Spinner', Spinner);
 

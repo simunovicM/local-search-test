@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Businesses from './views/businesses/Businesses.vue';
 import Business from './views/businesses/Business.vue';
+import NotFound from './views/NotFound.vue';
 
 Vue.use(Router)
 
@@ -20,11 +21,11 @@ const router = new Router({
       name: 'business',
       component: Business,
     },
-    // {
-    //   // will match everything
-    //   path: '*',
-    //   component: Rates
-    // }
+    {
+      // will match everything
+      path: '*',
+      component: NotFound
+    }
   ]
 })
 
