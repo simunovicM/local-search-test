@@ -19,16 +19,6 @@
 export default {
   props: ['item'],
   computed: {
-    // fullAddress() {
-    //   const { street, house_number, zipcode, city } = this.item.where;
-    //   return [
-    //     [street, house_number],
-    //     [zipcode, city]
-    //   ]
-    //     .map(f => f.join(' '))
-    //     .filter(f => f)
-    //     .join(', ');
-    // },
     phone() {
       return this.getContact('phone');
     },
