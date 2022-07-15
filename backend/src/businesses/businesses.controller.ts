@@ -1,3 +1,5 @@
+import { Mapper } from '@automapper/core';
+import { InjectMapper } from '@automapper/nestjs';
 import {
   Controller,
   Get,
@@ -5,6 +7,7 @@ import {
   Param,
   Query,
 } from '@nestjs/common';
+import { Business } from './businesses.model';
 import { BusinessesService } from './businesses.service';
 import {
   BusinessViewModel,
@@ -13,11 +16,15 @@ import {
 
 @Controller('api/businesses')
 export class BusinessesController {
-  constructor(private readonly businessesService: BusinessesService) { }
+  constructor(
+    private readonly businessesService: BusinessesService,
+    @InjectMapper() private readonly mapper: Mapper,
+  ) { }
 
   @Get()
   getBusinesses(@Query('searchText') searchText: string): BusinessViewModel[] {
-    return this.businessesService.getBusinesses(searchText);
+    var businesses = this.businessesService.getBusinesses(searchText);
+    return this.mapper.mapArray(businesses, Business, BusinessViewModel);
   }
 
   @Get(':id')
@@ -26,6 +33,6 @@ export class BusinessesController {
 
     if (!business) throw new NotFoundException('Business not found!');
 
-    return business;
+    return this.mapper.map(business, Business, BusinessDetailViewModel);
   }
 }

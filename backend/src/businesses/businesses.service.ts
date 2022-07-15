@@ -3,10 +3,6 @@ import { InjectMapper } from '@automapper/nestjs';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { Business } from './businesses.model';
-import {
-  BusinessViewModel,
-  BusinessDetailViewModel,
-} from './mappers/businesses.view.model';
 
 @Injectable()
 export class BusinessesService {
@@ -39,7 +35,7 @@ export class BusinessesService {
       );
   }
 
-  getBusinesses(searchText?: string): BusinessViewModel[] {
+  getBusinesses(searchText?: string): Business[] {
     this.checkBusinessesLoaded();
 
     const lowerCaseSearchText = (searchText || '').toLowerCase();
@@ -47,17 +43,13 @@ export class BusinessesService {
       [business.displayed_what, business.displayed_where]
         .find((g) => g.toLowerCase().includes(lowerCaseSearchText));
 
-    const buisinesses = this.businesses
+    return this.businesses
       .filter((f) => !searchText || findBusinessByText(f));
-
-    return this.mapper.mapArray(buisinesses, Business, BusinessViewModel);
   }
 
-  getBusiness(id: string): BusinessDetailViewModel {
+  getBusiness(id: string): Business {
     this.checkBusinessesLoaded();
 
-    const business = this.businesses.find((f) => f.id === id);
-
-    return this.mapper.map(business, Business, BusinessDetailViewModel);
+    return this.businesses.find((f) => f.id === id);
   }
 }
