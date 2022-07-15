@@ -14,5 +14,7 @@ npm start (or npm run start:dev for development)
 ```
 
 # publish to heroku
+```
 heroku git:remote -a local-search-test
 git push heroku main:main
+```
