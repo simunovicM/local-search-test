@@ -6,7 +6,7 @@
   "scripts": {
     "server": "cd backend && npm start",
     "start": "cd backend && npm start",
-    "heroku-postbuild": "cd backend && npm install && cd .. && cd frontend && npm install && npm install --only=prod --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd backend && npm install -f && cd .. && cd frontend && npm install && npm install --only=prod --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
