@@ -20,7 +20,7 @@ export class BusinessDetailViewModel {
   @AutoMap()
   displayed_where: string;
   @AutoMap(() => Array)
-  opening_hours: any[];
+  openingHours: Array<{ days: string, times: any[] }>;
 }
 
 export class AddressContactViewModel {

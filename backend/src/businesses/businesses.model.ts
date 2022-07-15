@@ -1,23 +1,20 @@
 import { AutoMap } from "@automapper/classes";
 
-export class Business {
-  @AutoMap()
-  id: string;
-  @AutoMap(() => Address)
-  addresses: Address[];
-  @AutoMap()
-  displayed_what: string;
-  @AutoMap()
-  displayed_where: string;
-  @AutoMap(() => Array)
-  opening_hours: any[];
+export enum DaysOfWeek {
+  MONDAY = 'monday',
+  TUESDAY = 'tuesday',
+  WEDNESDAY = 'wednesday',
+  THURSDAY = 'thursday',
+  FRIDAY = 'friday',
+  SATURDAY = 'saturday',
+  SUNDAY = 'sunday',
+}
 
-  constructor({ id, addresses, displayed_what, displayed_where, opening_hours }) {
-    this.id = id;
-    this.addresses = addresses.map(f => new Address(f));
-    this.displayed_what = displayed_what;
-    this.displayed_where = displayed_where;
-    this.opening_hours = opening_hours;
+export class OpeningHours {
+  days: { [day in DaysOfWeek]: Array<{ start: string, end: string }> };
+
+  constructor(openingHours: { days: { [day in DaysOfWeek]: Array<{ start: string, end: string }> } }) {
+    this.days = openingHours.days;
   }
 }
 
@@ -72,5 +69,26 @@ export class Address {
   constructor({ contacts, where }) {
     this.contacts = contacts.map(f => new AddressContact(f));
     this.where = new AddressWhere(where);
+  }
+}
+
+export class Business {
+  @AutoMap()
+  id: string;
+  @AutoMap(() => Address)
+  addresses: Address[];
+  @AutoMap()
+  displayed_what: string;
+  @AutoMap()
+  displayed_where: string;
+  @AutoMap(() => Array)
+  opening_hours: OpeningHours;
+
+  constructor({ id, addresses, displayed_what, displayed_where, opening_hours }) {
+    this.id = id;
+    this.addresses = addresses.map(f => new Address(f));
+    this.displayed_what = displayed_what;
+    this.displayed_where = displayed_where;
+    this.opening_hours = new OpeningHours(opening_hours);
   }
 }
