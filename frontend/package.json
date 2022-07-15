@@ -1,0 +1,63 @@
+{
+  "name": "business-entries-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "vue-cli-service serve --port 5528 --open --host localhost",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@vue/cli-plugin-babel": "^5.0.1",
+    "@vue/cli-plugin-eslint": "^5.0.1",
+    "@vue/cli-service": "^5.0.1",
+    "axios": "^0.26.0",
+    "buffer": "^6.0.3",
+    "core-js": "^3.6.5",
+    "eslint-plugin-vue": "^8.5.0",
+    "file-saver": "^2.0.5",
+    "lodash.merge": "^4.6.2",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^10.1.1",
+    "vue": "^2.6.11",
+    "vue-notification": "^1.3.20",
+    "vue-router": "^3.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {
+      "vue/multi-word-component-names": "off",
+      "vue/valid-next-tick": "off",
+      "no-debugger": "warn",
+      "no-console": "warn",
+      "no-unused-vars": "warn",
+      "vue/no-unused-components": "warn",
+      "no-mixed-spaces-and-tabs": "warn",
+      "no-constant-condition": "warn",
+      "no-irregular-whitespace": "warn",
+      "no-unreachable": "warn",
+      "vue/no-unused-vars": "warn",
+      "vue/return-in-computed-property": "warn"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
