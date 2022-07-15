@@ -13,3 +13,9 @@ export default {
   components: {},
 }
 </script>
+
+<style scoped>
+.mainWrapper {
+  min-width: 350px;
+}
+</style>
