@@ -1,5 +1,5 @@
-import { AutoMap } from "@automapper/classes";
-import { ContactType } from "src/businesses/businesses.model";
+import { AutoMap } from '@automapper/classes';
+import { ContactType } from 'src/businesses/businesses.model';
 
 export class BusinessViewModel {
   @AutoMap()
@@ -20,7 +20,7 @@ export class BusinessDetailViewModel {
   @AutoMap()
   displayed_where: string;
   @AutoMap(() => Array)
-  openingHours: Array<{ days: string, times: any[] }>;
+  openingHours: Array<{ days: string; times: any[] }>;
 }
 
 export class AddressContactViewModel {

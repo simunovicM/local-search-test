@@ -1,6 +1,15 @@
-import { Controller, Get, NotFoundException, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  Query,
+} from '@nestjs/common';
 import { BusinessesService } from './businesses.service';
-import { BusinessViewModel, BusinessDetailViewModel } from './mappers/businesses.view.model';
+import {
+  BusinessViewModel,
+  BusinessDetailViewModel,
+} from './mappers/businesses.view.model';
 
 @Controller('api/businesses')
 export class BusinessesController {
@@ -15,8 +24,7 @@ export class BusinessesController {
   getBusiness(@Param('id') id: string): BusinessDetailViewModel {
     const business = this.businessesService.getBusiness(id);
 
-    if (!business)
-      throw new NotFoundException('Business not found!');
+    if (!business) throw new NotFoundException('Business not found!');
 
     return business;
   }

@@ -8,8 +8,9 @@ import { BusinessesModule } from './businesses/businesses.module';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', 'frontend/dist'),
     }),
-    BusinessesModule],
+    BusinessesModule,
+  ],
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,4 @@
-import { AutoMap } from "@automapper/classes";
+import { AutoMap } from '@automapper/classes';
 
 export enum DaysOfWeek {
   MONDAY = 'monday',
@@ -11,9 +11,11 @@ export enum DaysOfWeek {
 }
 
 export class OpeningHours {
-  days: { [day in DaysOfWeek]: Array<{ start: string, end: string }> };
+  days: { [day in DaysOfWeek]: Array<{ start: string; end: string }> };
 
-  constructor(openingHours: { days: { [day in DaysOfWeek]: Array<{ start: string, end: string }> } }) {
+  constructor(openingHours: {
+    days: { [day in DaysOfWeek]: Array<{ start: string; end: string }> };
+  }) {
     this.days = openingHours.days;
   }
 }
@@ -26,7 +28,12 @@ export class AddressContact {
   service_code: string;
   call_link: string;
 
-  constructor({ contact_type, formatted_service_code, service_code, call_link }) {
+  constructor({
+    contact_type,
+    formatted_service_code,
+    service_code,
+    call_link,
+  }) {
     this.contact_type = ContactType[contact_type.toUpperCase()];
     this.formatted_service_code = formatted_service_code;
     this.service_code = service_code;
@@ -36,7 +43,7 @@ export class AddressContact {
 
 export enum ContactType {
   PHONE = 'phone',
-  URL = 'url'
+  URL = 'url',
 }
 
 export class AddressWhere {
@@ -67,7 +74,7 @@ export class Address {
   where: AddressWhere;
 
   constructor({ contacts, where }) {
-    this.contacts = contacts.map(f => new AddressContact(f));
+    this.contacts = contacts.map((f) => new AddressContact(f));
     this.where = new AddressWhere(where);
   }
 }
@@ -84,9 +91,15 @@ export class Business {
   @AutoMap(() => Array)
   opening_hours: OpeningHours;
 
-  constructor({ id, addresses, displayed_what, displayed_where, opening_hours }) {
+  constructor({
+    id,
+    addresses,
+    displayed_what,
+    displayed_where,
+    opening_hours,
+  }) {
     this.id = id;
-    this.addresses = addresses.map(f => new Address(f));
+    this.addresses = addresses.map((f) => new Address(f));
     this.displayed_what = displayed_what;
     this.displayed_where = displayed_where;
     this.opening_hours = new OpeningHours(opening_hours);

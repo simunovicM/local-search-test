@@ -1,6 +1,6 @@
 import { AutomapperModule } from '@automapper/nestjs';
 import { BusinessesProfile } from './mappers/businesses.profile';
-import { classes } from "@automapper/classes";
+import { classes } from '@automapper/classes';
 import { Module } from '@nestjs/common';
 import { BusinessesController } from './businesses.controller';
 import { BusinessesService } from './businesses.service';
@@ -12,6 +12,6 @@ import { BusinessesService } from './businesses.service';
     }),
   ],
   controllers: [BusinessesController],
-  providers: [BusinessesProfile, BusinessesService,],
+  providers: [BusinessesProfile, BusinessesService],
 })
 export class BusinessesModule { }
