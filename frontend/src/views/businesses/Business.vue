@@ -8,7 +8,7 @@
         </div>
         <div class="col no-wrap">
           <p class="small-title">Opening Hours</p>
-          <div class="flex mb-2 ml-3" v-for="item in openingHours" :key="item.days">
+          <div class="flex mb-2 ml-3" v-for="item in business.openingHours" :key="item.days">
             <div class="col-7 p-0">{{ item.days }}</div>
             <div class="col-5 p-0 text-right">
               <p v-for="(hours, ind) in item.times" :key="ind">{{ hours }}</p>
@@ -34,17 +34,6 @@ export default {
       isLoading: false,
     };
   },
-  computed: {
-    openingHours() {
-      const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-      return daysOfWeek
-        .sequentialGroupBy(f => this.groupTimes(this.business.opening_hours.days[f] || []).join('\n'))
-        .map(f => ({
-          days: [f.items.first(), f.items.last()].unique().map(f => f.capitalize()).join(' - '),
-          times: this.groupTimes(this.business.opening_hours.days[f.items.first()] || [])
-        }));
-    },
-  },
   methods: {
     getData() {
       this.isLoading = true;
@@ -52,9 +41,6 @@ export default {
         .then(response => this.business = response.data)
         .catch(errorDebug)
         .then(() => this.isLoading = false);
-    },
-    groupTimes(times) {
-      return times.any() ? times.map(f => `${f.start} - ${f.end}`) : ['Closed'];
     },
   },
   mounted() {
