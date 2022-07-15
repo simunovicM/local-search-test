@@ -39,18 +39,16 @@ export class BusinessesService {
       );
   }
 
-  getBusinesses(searchText?: string): any {
+  getBusinesses(searchText?: string): BusinessViewModel[] {
     this.checkBusinessesLoaded();
 
     const lowerCaseSearchText = (searchText || '').toLowerCase();
     const findBusinessByText = (business) =>
-      [business.displayed_what, business.displayed_where].find((g) =>
-        g.toLowerCase().includes(lowerCaseSearchText),
-      );
+      [business.displayed_what, business.displayed_where]
+        .find((g) => g.toLowerCase().includes(lowerCaseSearchText));
 
-    const buisinesses = this.businesses.filter(
-      (f) => !searchText || findBusinessByText(f),
-    );
+    const buisinesses = this.businesses
+      .filter((f) => !searchText || findBusinessByText(f));
 
     return this.mapper.mapArray(buisinesses, Business, BusinessViewModel);
   }
