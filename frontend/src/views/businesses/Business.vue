@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="business">
-      <p class="title px-3 mb-4">{{ business.displayed_what }}</p>
+      <p class="title px-3 mb-4">{{ business.displayedWhat }}</p>
       <div class="flex wrap">
         <div class="col col-md-8 no-wrap">
           <BusinessAddress :item="item" v-for="(item, ind) in business.addresses" :key="ind" />

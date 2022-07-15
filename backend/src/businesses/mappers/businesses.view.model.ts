@@ -5,9 +5,9 @@ export class BusinessViewModel {
   @AutoMap()
   id: string;
   @AutoMap()
-  displayed_what: string;
+  displayedWhat: string;
   @AutoMap()
-  displayed_where: string;
+  displayedWhere: string;
 }
 
 export class BusinessDetailViewModel {
@@ -16,18 +16,18 @@ export class BusinessDetailViewModel {
   @AutoMap(() => AddressViewModel)
   addresses: AddressViewModel[];
   @AutoMap()
-  displayed_what: string;
+  displayedWhat: string;
   @AutoMap()
-  displayed_where: string;
+  displayedWhere: string;
   @AutoMap(() => Array)
   openingHours: Array<{ days: string; times: any[] }>;
 }
 
 export class AddressContactViewModel {
   @AutoMap()
-  contact_type: ContactType;
+  contactType: ContactType;
   @AutoMap()
-  formatted_service_code: string;
+  formattedServiceCode: string;
   link: string;
 }
 

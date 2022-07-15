@@ -1,7 +1,7 @@
 <template>
   <div class="business-list-item h-100" @click="$emit('click', $event)">
-    <p class="small-title">{{ value.displayed_what }}</p>
-    <p v-for="(item, ind) in value.displayed_where.split(',')" :key="ind">{{ item }}</p>
+    <p class="small-title">{{ value.displayedWhat }}</p>
+    <p v-for="(item, ind) in value.displayedWhere.split(',')" :key="ind">{{ item }}</p>
   </div>
 </template>
 

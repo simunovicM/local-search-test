@@ -27,12 +27,17 @@ export class BusinessesProfile extends AutomapperProfile {
 
   override get profile() {
     return (mapper) => {
-      createMap(mapper, Business, BusinessViewModel);
+      createMap(mapper, Business, BusinessViewModel,
+        forMember(f => f.displayedWhat, mapFrom(source => source.displayed_what)),
+        forMember(f => f.displayedWhere, mapFrom(source => source.displayed_where)),
+      );
 
       createMap(
         mapper,
         Business,
         BusinessDetailViewModel,
+        forMember(f => f.displayedWhat, mapFrom(source => source.displayed_what)),
+        forMember(f => f.displayedWhere, mapFrom(source => source.displayed_where)),
         forMember(
           (f) => f.openingHours,
           mapFrom((source) => {
@@ -79,6 +84,8 @@ export class BusinessesProfile extends AutomapperProfile {
         mapper,
         AddressContact,
         AddressContactViewModel,
+        forMember(f => f.contactType, mapFrom(source => source.contact_type)),
+        forMember(f => f.formattedServiceCode, mapFrom(source => source.formatted_service_code)),
         forMember(
           (f) => f.link,
           mapFrom((source) => source.call_link || source.service_code),

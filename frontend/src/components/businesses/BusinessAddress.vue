@@ -5,12 +5,12 @@
 
     <div class="mb-5" v-if="website">
       <p class="small-title">Website</p>
-      <a class="ml-3" :href="website.link" target="_blank">{{ website.formatted_service_code }}</a>
+      <a class="ml-3" :href="website.link" target="_blank">{{ website.formattedServiceCode }}</a>
     </div>
 
     <div class="mb-5" v-if="phone">
       <p class="small-title">Phone</p>
-      <a class="ml-3" :href="`tel:${phone.link}`">{{ phone.formatted_service_code }}</a>
+      <a class="ml-3" :href="`tel:${phone.link}`">{{ phone.formattedServiceCode }}</a>
     </div>
   </div>
 </template>
@@ -39,7 +39,7 @@ export default {
   methods: {
     getContact(type) {
       return this.item.contacts
-        .find(f => f.contact_type === type);
+        .find(f => f.contactType === type);
     },
   },
 }
