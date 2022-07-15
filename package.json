@@ -1,0 +1,21 @@
+{
+  "name": "local-search-test",
+  "version": "1.0.0",
+  "description": "localsearch test project",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd backend && npm start",
+    "start": "cd backend && npm start",
+    "heroku-postbuild": "cd backend && npm install && cd .. && cd frontend && npm install && npm install --only=prod --no-shrinkwrap && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simunovicM/local-search-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simunovicM/local-search-test/issues"
+  },
+  "homepage": "https://github.com/simunovicM/local-search-test#readme"
+}
