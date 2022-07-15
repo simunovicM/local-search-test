@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "cd backend && npm start",
-    "start": "cd backend && npm start",
-    "heroku-postbuild": "cd backend && npm install -f && npm install --only=prod --no-shrinkwrap && cd .. && cd frontend && npm install && npm install --only=prod --no-shrinkwrap && npm run build"
+    "start": "node backend/dist/main.js",
+    "heroku-postbuild": "cd backend && npm install -f && npm run build && cd .. && cd frontend && npm install && npm install --only=prod --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
