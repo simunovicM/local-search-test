@@ -33,6 +33,14 @@ describe('Businesses.vue', () => {
 
     await Vue.nextTick();
     expect(wrapper.findAllComponents(BusinessListItem).length).toBe(2);
+
+    expect(wrapper.text()).toContain('Le Café du Marché');
+    expect(wrapper.text()).toContain('Rue de Conthey 17');
+    expect(wrapper.text()).toContain('1950 Sion');
+
+    expect(wrapper.text()).toContain('Casa Ferlin');
+    expect(wrapper.text()).toContain('Stampfenbachstrasse 38');
+    expect(wrapper.text()).toContain('8006 Zürich');
   });
 
   it('triggers search', async () => {
