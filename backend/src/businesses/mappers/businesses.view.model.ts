@@ -1,5 +1,5 @@
 import { AutoMap } from '@automapper/classes';
-import { ContactType } from 'src/businesses/businesses.model';
+import { ContactType } from '../businesses.model';
 
 export class BusinessViewModel {
   @AutoMap()

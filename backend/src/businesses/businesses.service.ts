@@ -1,5 +1,3 @@
-import { Mapper } from '@automapper/core';
-import { InjectMapper } from '@automapper/nestjs';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { Business } from './businesses.model';
@@ -7,7 +5,7 @@ import { Business } from './businesses.model';
 @Injectable()
 export class BusinessesService {
   businesses: Business[] = [];
-  constructor(@InjectMapper() private readonly mapper: Mapper) {
+  constructor() {
     const ids = ['ohGSnJtMIC5nPfYRi_HTAg', 'GXvPAor1ifNfpF0U5PTG0w'];
 
     const crateId = (data) =>

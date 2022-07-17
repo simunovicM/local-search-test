@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import './libraries/extensions/array';
-import './libraries/extensions/string';
+import './libraries/extensions';
 
 const port = process.env.PORT || 3043;
 

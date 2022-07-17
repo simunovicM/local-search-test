@@ -7,14 +7,14 @@ import {
   Business,
   AddressContact,
   DaysOfWeek,
-} from 'src/businesses/businesses.model';
+} from '../businesses.model';
 import {
   BusinessViewModel,
   BusinessDetailViewModel,
   AddressViewModel,
   AddressWhereViewModel,
   AddressContactViewModel,
-} from 'src/businesses/mappers/businesses.view.model';
+} from './businesses.view.model';
 
 const groupTimes = (times: Array<{ start: string; end: string }>): string[] =>
   times.any() ? times.map((f) => `${f.start} - ${f.end}`) : ['Closed'];

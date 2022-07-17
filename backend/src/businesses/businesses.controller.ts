@@ -22,7 +22,7 @@ export class BusinessesController {
   ) { }
 
   @Get()
-  getBusinesses(@Query('searchText') searchText: string): BusinessViewModel[] {
+  getBusinesses(@Query('searchText') searchText?: string): BusinessViewModel[] {
     var businesses = this.businessesService.getBusinesses(searchText);
     return this.mapper.mapArray(businesses, Business, BusinessViewModel);
   }

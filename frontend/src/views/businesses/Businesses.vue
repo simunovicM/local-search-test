@@ -46,7 +46,7 @@ export default {
       },
       set(value) {
         if (this.lastSearchText !== value) {
-          this.$router.push({ ...this.$route.name, hash: value && objectToHash({ search: value }) });
+          this.$router.replace({ ...this.$route.name, hash: value && objectToHash({ search: value }) });
         }
       },
     },
