@@ -1,10 +1,6 @@
 <template>
   <main class="mainWrapper container">
-    <div class="contScroll w-100 scrollBar">
-      <div class="contentWrap">
-        <router-view />
-      </div>
-    </div>
+    <router-view />
   </main>
 </template>
 

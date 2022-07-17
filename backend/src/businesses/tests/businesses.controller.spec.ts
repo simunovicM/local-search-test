@@ -10,7 +10,7 @@ import { BusinessDetailViewModel } from '../mappers/businesses.view.model';
 import '../../libraries/extensions';
 import { NotFoundException } from '@nestjs/common';
 
-describe('AppController', () => {
+describe('Businesses Controller', () => {
   let controller: BusinessesController;
 
   beforeEach(async () => {
